@@ -85,7 +85,7 @@ func (t Tag) String() string {
 		i++
 	}
 
-	sort.Sort(sort.StringSlice(fields))
+	sort.Strings(fields)
 	b.WriteString(strings.Join(fields, "\t"))
 
 	return b.String()

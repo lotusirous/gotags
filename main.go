@@ -208,7 +208,8 @@ func main() {
 	}
 
 	if sortOutput {
-		sort.Sort(sort.StringSlice(output))
+		sort.Strings(output)
+		// sort.Sort(sort.StringSlice(output))
 	}
 
 	var out io.Writer
