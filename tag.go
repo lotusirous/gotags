@@ -76,13 +76,11 @@ func (t Tag) String() string {
 	b.WriteByte('\t')
 
 	fields := make([]string, 0, len(t.Fields))
-	i := 0
 	for k, v := range t.Fields {
 		if len(v) == 0 {
 			continue
 		}
 		fields = append(fields, fmt.Sprintf("%s:%s", k, v))
-		i++
 	}
 
 	sort.Strings(fields)
