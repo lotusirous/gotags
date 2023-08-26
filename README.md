@@ -1,66 +1,71 @@
 # gotags
 
-gotags is a [ctags][]-compatible tag generator for [Go][].
+gotags is a [ctags][ctags]-compatible tag generator for [Go][Go].
+
+[ctags format](https://ctags.sourceforge.net/FORMAT)
 
 [![Build Status][travis-badge]][travis-link]
 [![Report Card][report-badge]][report-link]
 
 ## Installation
 
-[Go][] version 1.1 or higher is required. Install or update gotags using the
+[Go][Go] version 1.1 or higher is required. Install or update gotags using the
 `go get` command:
 
-	go get -u github.com/jstemmer/gotags
+    go get -u github.com/jstemmer/gotags
 
 Or using package manager `brew` on OS X
 
-	brew install gotags
+    brew install gotags
 
 ## Usage
 
-	gotags [options] file(s)
+```
+    gotags [options] file(s)
 
-	-L="": source file names are read from the specified file. If file is "-", input is read from standard in.
-	-R=false: recurse into directories in the file list.
-	-f="": write output to specified file. If file is "-", output is written to standard out.
-	-silent=false: do not produce any output on error.
-	-sort=true: sort tags.
-	-tag-relative=false: file paths should be relative to the directory containing the tag file.
-	-v=false: print version.
+    -L="": source file names are read from the specified file. If file is "-", input is read from standard in.
+    -R=false: recurse into directories in the file list.
+    -f="": write output to specified file. If file is "-", output is written to standard out.
+    -silent=false: do not produce any output on error.
+    -sort=true: sort tags.
+    -tag-relative=false: file paths should be relative to the directory containing the tag file.
+    -v=false: print version.
+```
 
-## Vim [Tagbar][] configuration
+## Vim [Tagbar][Tagbar] configuration
 
 Put the following configuration in your vimrc:
 
-	let g:tagbar_type_go = {
-		\ 'ctagstype' : 'go',
-		\ 'kinds'     : [
-			\ 'p:package',
-			\ 'i:imports:1',
-			\ 'c:constants',
-			\ 'v:variables',
-			\ 't:types',
-			\ 'n:interfaces',
-			\ 'w:fields',
-			\ 'e:embedded',
-			\ 'm:methods',
-			\ 'r:constructor',
-			\ 'f:functions'
-		\ ],
-		\ 'sro' : '.',
-		\ 'kind2scope' : {
-			\ 't' : 'ctype',
-			\ 'n' : 'ntype'
-		\ },
-		\ 'scope2kind' : {
-			\ 'ctype' : 't',
-			\ 'ntype' : 'n'
-		\ },
-		\ 'ctagsbin'  : 'gotags',
-		\ 'ctagsargs' : '-sort -silent'
-	\ }
+    let g:tagbar_type_go = {
+    	\ 'ctagstype' : 'go',
+    	\ 'kinds'     : [
+    		\ 'p:package',
+    		\ 'i:imports:1',
+    		\ 'c:constants',
+    		\ 'v:variables',
+    		\ 't:types',
+    		\ 'n:interfaces',
+    		\ 'w:fields',
+    		\ 'e:embedded',
+    		\ 'm:methods',
+    		\ 'r:constructor',
+    		\ 'f:functions'
+    	\ ],
+    	\ 'sro' : '.',
+    	\ 'kind2scope' : {
+    		\ 't' : 'ctype',
+    		\ 'n' : 'ntype'
+    	\ },
+    	\ 'scope2kind' : {
+    		\ 'ctype' : 't',
+    		\ 'ntype' : 'n'
+    	\ },
+    	\ 'ctagsbin'  : 'gotags',
+    	\ 'ctagsargs' : '-sort -silent'
+    \ }
 
 ### Vim+Tagbar Screenshot
+
 ![vim Tagbar gotags](https://stemmertech.com/images/gotags-1.0.0-screenshot.png)
 
 ## gotags with Emacs
